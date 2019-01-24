@@ -10,20 +10,26 @@ from threading import Thread
 import os
 import tkinter as tk
 import random
+from pathlib import Path
 
 var = "V1.0.0"
 w = 34
 h = 18
+home = str(Path.home())
 
 def play():
     global rand
     global ls
-    ls = os.listdir("/home/angoosh/Hudba")
+    if os.path.exists(home+"/Hudba"):
+        path = home+"/Hudba/"
+    else:
+        path = home+"/Music/"
+    ls = os.listdir(path)
     a = len(ls)
     rand = random.randint(0, a-1)
     directory = ls[rand]
     root.title(directory)
-    path = "/home/angoosh/Hudba/"+directory
+    path = path+directory
     path = '"{}"'.format(path)
     os.system("cvlc -Z -L "+path)
     
