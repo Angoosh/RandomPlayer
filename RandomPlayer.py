@@ -6,6 +6,7 @@ Created on Thu Jan 24 09:07:06 2019
 @author: angoosh
 """
 
+import subprocess
 from threading import Thread
 import os
 import tkinter as tk
@@ -16,6 +17,10 @@ var = "V1.0.0"
 w = 34
 h = 18
 home = str(Path.home())
+
+def ip(cmd):
+    return subprocess.check_output(cmd, shell=True).decode('utf-8')
+var = run(ip_cmd)
 
 def play():
     global rand
