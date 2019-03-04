@@ -17,6 +17,7 @@ var = "V1.0.0"
 w = 34
 h = 18
 home = str(Path.home())
+ip_cmd = "hostname -I"
 
 def ip(cmd):
     return subprocess.check_output(cmd, shell=True).decode('utf-8')
