@@ -21,7 +21,7 @@ ip_cmd = "hostname -I"
 
 def ip(cmd):
     return subprocess.check_output(cmd, shell=True).decode('utf-8')
-var = run(ip_cmd)
+var = ip(ip_cmd)
 
 def play():
     global rand
